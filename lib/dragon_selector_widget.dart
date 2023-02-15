@@ -8,17 +8,19 @@ class DragonSelector extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () => onTap(),
-      child: AnimatedContainer(
-        curve: Curves.bounceOut,
-        duration: const Duration(milliseconds: 600),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(15),
-          color: color,
+    return Center(
+      child: GestureDetector(
+        onTap: () => onTap(),
+        child: AnimatedContainer(
+          curve: Curves.bounceOut,
+          duration: const Duration(milliseconds: 600),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(15),
+            color: color,
+          ),
+          height: height,
+          width: 200,
         ),
-        height: height,
-        width: 200,
       ),
     );
   }
