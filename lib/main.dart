@@ -1,6 +1,5 @@
-import 'dart:math';
 import 'data/dragons_data.dart';
-import 'dragon_selector_widget.dart';
+import 'data/dragon_selector_widget.dart';
 import 'package:flutter/material.dart';
 
 
@@ -22,6 +21,7 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
       body: PageView.builder(
          onPageChanged: (value) =>setState(() {
            currentIndex = value;
@@ -30,9 +30,16 @@ class _MyAppState extends State<MyApp> {
           itemCount: dragons.length,
           itemBuilder: ((context, index) { 
          
-            return DragonSelector(dragons[index].bgColor, (){
+            return DragonSelector(color:dragons[index].bgColor,
+            
+            onTap: (){
            
-            },currentIndex == index ? 300 : 280);
+            },
+            height:currentIndex == index ? 300 : 280,
+            image: 
+            '${dragons[index].image}',
+            
+            );
           })),
     );
   }

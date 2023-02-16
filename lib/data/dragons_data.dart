@@ -1,26 +1,26 @@
-import 'package:animated_character_selector/models/dragon_model.dart';
+import '../models/dragon_model.dart';
 import 'package:flutter/material.dart';
 
 List<Dragon> dragons = [
   Dragon(
-    image:'baby dragon.png',
+    image:'baby_dragon.png',
     name: 'Squirt',
     bgColor: Colors.yellowAccent,
    ),
     Dragon(
-    image:'starter dragon.png',
+    image:'starter_dragon.png',
     name: 'Lirio',
     bgColor: Colors.blueAccent,
    ),
 
    Dragon(
-    image: 'medium dragon/png',
+    image: 'medium_dragon.png',
     name:'Blaze',
     bgColor: Colors.orangeAccent,
    ),
     Dragon(
-    image: 'boss dragon/png',
+    image: 'boss_dragon.png',
     name:'Ragnarok',
-    bgColor: Colors.black,
+    bgColor: Color.fromARGB(255, 88, 84, 84),
    ),
 ];
