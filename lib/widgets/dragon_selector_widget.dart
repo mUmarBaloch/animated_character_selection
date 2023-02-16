@@ -5,7 +5,9 @@ class DragonSelector extends StatelessWidget {
   final Function onTap;
   final double height;
   final String image;
-  const DragonSelector({required this.color, required this.onTap, required this.height,required this.image,super.key});
+  final double imageSize;
+  final String name;
+  const DragonSelector({required this.color, required this.onTap, required this.height,required this.image,super.key, required this.imageSize,required this.name});
 
   @override
   Widget build(BuildContext context) {
@@ -15,16 +17,17 @@ class DragonSelector extends StatelessWidget {
         child: Stack(
           children: [
             AnimatedContainer(
-            curve: Curves.bounceOut,
-            duration: const Duration(milliseconds: 600),
+            curve: Curves.easeOut,
+            duration: const Duration(milliseconds: 500),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(15),
-              color: color,
+            gradient:LinearGradient(colors:[color,color.withOpacity(.5)], begin : Alignment.topCenter,end:Alignment.bottomCenter)
             ),
             height: height,
             width: 200,
+            child: Align(alignment: Alignment.bottomCenter, child: Text(name),),
           ),
-            CharacterImage(image:image),
+            CharacterImage(image:image,imageSize:imageSize),
           ],
         ),
       ),
@@ -34,21 +37,24 @@ class DragonSelector extends StatelessWidget {
 
 class CharacterImage extends StatelessWidget {
   final String image;
+  final double imageSize;
   const CharacterImage({
     required this.image,
-    super.key,
+    super.key, required this.imageSize,
   });
 
   @override
   Widget build(BuildContext context) {
     return AnimatedContainer(
-      height: 200,
+
+      height: 250,
      width : 200,
       curve: Curves.easeIn
-      ,duration: const Duration(milliseconds: 600),
+      ,duration: const Duration(milliseconds: 400),
       decoration: BoxDecoration(
         image: DecorationImage(
-       
+       fit: BoxFit.contain,
+       alignment: Alignment.center  ,
           image: AssetImage(image),
 
         ),

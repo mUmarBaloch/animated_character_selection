@@ -1,10 +1,15 @@
 import 'data/dragons_data.dart';
-import 'data/dragon_selector_widget.dart';
+import 'widgets/dragon_selector_widget.dart';
 import 'package:flutter/material.dart';
 
 
 void main() {
-  runApp(const MaterialApp(home: MyApp()));
+  runApp( MaterialApp(
+    theme: ThemeData(
+      fontFamily: 
+      'TradeWinds'
+    ),
+    home: MyApp()));
 }
 
 class MyApp extends StatefulWidget {
@@ -30,15 +35,15 @@ class _MyAppState extends State<MyApp> {
           itemCount: dragons.length,
           itemBuilder: ((context, index) { 
          
-            return DragonSelector(color:dragons[index].bgColor,
+            return DragonSelector(name:dragons[index].name,color:dragons[index].bgColor,
             
             onTap: (){
            
             },
-            height:currentIndex == index ? 300 : 280,
+            height:currentIndex == index ? 300 : 270,
             image: 
-            '${dragons[index].image}',
-            
+            dragons[index].image,
+            imageSize: currentIndex == index ? 260: 200,
             );
           })),
     );
